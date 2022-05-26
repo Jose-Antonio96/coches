@@ -7,7 +7,8 @@ class coche {
     private float $potmotor;
     private array $estados=["parado", "encendido", "andando"];
     private int $estadoActual;
-    private static $numcoches; //pertenece a la clase
+    private static $numcoches=0; //pertenece a la clase
+    private static $instances=[];
 
     public function __construct(string $marca, string $color, int $numruedas)
     //En el constructor no se cambia el estado sino que se le da identidad
@@ -18,11 +19,28 @@ class coche {
         $this-> potmotor = 0;
         $this-> estadoActual = 0;
         self::$numcoches++;
+        self::$instances[]=$this;
     }
 
     public function __destruct(){
         self::$numcoches--;
         echo "uno menos";
+    }
+
+    public static function apagarcoches(){
+        foreach(self::$instances as $coche)
+            $coche->setEstado(0);
+        return "apagados";
+    }
+
+    public static function endencercoches(){
+        foreach(self::$instances as $coche)
+            $coche->setEstado(1);
+        return "encendidos";
+    }
+    /*Método protegido que me diga el numero de coches en ese momento*/
+    public static function numcoches(){
+        return self::$numcoches;
     }
 
     public function arrancar(){
@@ -57,6 +75,29 @@ class coche {
 
     public function getEstado(){
         return $this->estados[$this->estadoActual];
+    }
+
+    public function setEstado($estado){
+        $this->estado=$estado;
+    }
+
+    public function imprimircoche():string{
+        return "Coche " . $this->getmarca() . "/n";
+                          $this->getcolor(). "/n";
+                          $this->getnumruedas() . "/n";
+                          $this->getEstado() . "/n";
+    }
+
+    public function getmarca(){
+        return $this->marca;
+    }
+
+    public function getcolor():string{
+        return $this->color;
+    }
+
+    public function getnumruedas():int{
+        return $this->numruedas;
     }
 
 }
