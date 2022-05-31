@@ -5,16 +5,15 @@ class ferrari extends coche{
     public function __construct($color, $numruedas)
     {
         parent::__construct("ferrari", $color, $numruedas);
-    }
+        }
     
     public function ruido(){
-        $ruidos=["Silencio", "RUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUN", "BRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUM"];
+        $ruidos=["parado" =>"Silencio", "encendido"=>"RUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUN", "muy rapido"=>"BRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUM"];
         return $ruidos[$this->getEstado()];
     }
     
 
     public function velocidad(){
-        echo "Num coches " . coche::numcoches();
         return $this->potmotor*1000;
     }
 

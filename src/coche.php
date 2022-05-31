@@ -65,7 +65,7 @@ class coche {
 
     public function ruido(){
         $ruidos=["Silencio", "runrun", "brummmmm"];
-        return self::$numcoches . " " .$ruidos[$this->estadoActual];
+        return $ruidos[$this->estadoActual];
     }
     //El ruido va ligado al estado del motor
 
@@ -78,14 +78,11 @@ class coche {
     }
 
     public function setEstado($estado){
-        $this->estado=$estado;
+        $this->estadoActual=$estado;
     }
 
     public function imprimircoche():string{
-        return "Coche " . $this->getmarca() . "/n";
-                          $this->getcolor(). "/n";
-                          $this->getnumruedas() . "/n";
-                          $this->getEstado() . "/n";
+        return "Marca: " . $this->marca . "\n" . " Color: " . $this->color . "\n" . " Numero de ruedas: " .  $this->numruedas . "\n" . " Potencia del motor: " . $this->potmotor . "\n" . " Estado: " . $this->getEstado() . "\n";
     }
 
     public function getmarca(){

@@ -8,12 +8,11 @@ class lamborgini extends coche{
     }
     
     public function ruido(){
-        $ruidos=["Silencio", "RUUUUUUUUUUUUUUUUUUUUUUUUN", "BRRRRRRRRRRRRRRRRRRUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUM"];
+        $ruidos=["parado"=>"Silencio", "encendido"=>"RUUUUUUUUUUUUUUUUUUUUUUUUN", "muy rapido"=>"BRRRRRRRRRRRRRRRRRRUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUM"];
         return $ruidos[$this->estadoActual];
     }
 
     public function velocidad(){
-        echo "Num coches " . coche::numcoches();
         return $this->potmotor*800;
     }
 

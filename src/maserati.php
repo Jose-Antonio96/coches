@@ -13,7 +13,6 @@ class maserati extends coche{
     }
 
     public function velocidad(){
-        echo "Num coches " . coche::numcoches();
         return $this->potmotor*600;
     }
 
