@@ -5,11 +5,12 @@ class lamborgini extends coche{
     public function __construct($color, $numruedas)
     {
         parent::__construct("lamborgini", $color, $numruedas);
+        $this->acelerar(40);
     }
     
     public function ruido(){
         $ruidos=["parado"=>"Silencio", "encendido"=>"RUUUUUUUUUUUUUUUUUUUUUUUUN", "muy rapido"=>"BRRRRRRRRRRRRRRRRRRUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUM"];
-        return $ruidos[$this->estadoActual];
+        return $ruidos[$this->getEstado($this->estados)];
     }
 
     public function velocidad(){

@@ -16,6 +16,8 @@ class coche {
         $this-> marca = $marca;
         $this-> color = $color; 
         $this-> numruedas = $numruedas;
+
+        //Atribut
         $this-> potmotor = 0;
         $this-> estadoActual = 0;
         self::$numcoches++;
@@ -73,8 +75,8 @@ class coche {
         return $this->potmotor;
     }
 
-    public function getEstado(){
-        return $this->estados[$this->estadoActual];
+    public function getEstado($estados){
+        return $estados[$this->estadoActual];
     }
 
     public function setEstado($estado){
@@ -82,7 +84,7 @@ class coche {
     }
 
     public function imprimircoche():string{
-        return "Marca: " . $this->marca . "\n" . " Color: " . $this->color . "\n" . " Numero de ruedas: " .  $this->numruedas . "\n" . " Potencia del motor: " . $this->potmotor . "\n" . " Estado: " . $this->getEstado() . "\n";
+        return "Marca: " . $this->marca . "\n" . " Color: " . $this->color . "\n" . " Numero de ruedas: " .  $this->numruedas . "\n" . " Potencia del motor: " . $this->potmotor . "\n" . " Estado: " . $this->getEstado($this->estados) . "\n";
     }
 
     public function getmarca(){
