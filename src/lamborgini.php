@@ -13,7 +13,7 @@ class lamborgini extends coche{
         return $ruidos[$this->getEstado($this->estados)];
     }
 
-    public function velocidad(){
+    public function velocidad():float{
         return $this->potmotor*800;
     }
 

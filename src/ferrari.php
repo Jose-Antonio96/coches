@@ -14,7 +14,7 @@ class ferrari extends coche{
     }
     
 
-    public function velocidad(){
+    public function velocidad():float{
         return $this->potmotor*1000;
     }
 
